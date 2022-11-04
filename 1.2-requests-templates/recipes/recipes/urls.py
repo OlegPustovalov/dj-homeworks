@@ -13,9 +13,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.contrib import admin
+from django.urls import path,include
 
-from django.urls import path
+from calculator.views import home_view, omlet_view, pasta_view, buter_view,omlet_many_view,pasta_many_view,buter_many_view
 
 urlpatterns = [
     # здесь зарегистрируйте вашу view-функцию
+    path('admin/',admin.site.urls),
+    path('', home_view, name='home'),
+    path('omlet/', omlet_view, name='omlet'),
+    path('pasta/', pasta_view, name='pasta'),
+    path('buter/', buter_view, name='buter'),
+    path('omlet/<int:param1>',omlet_many_view,name='omlet_many'),
+    path('pasta/<int:param2>',pasta_many_view,name='pasta_many'),
+    path('buter/<int:param3>',buter_many_view,name='buter_many'),
 ]
