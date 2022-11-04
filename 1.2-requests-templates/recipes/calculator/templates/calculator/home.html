@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Домашняя страница</title>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=CQOTxiJ55LUDJyso8O9rjYwWQwClpFJnwVnyU8tWsveEX_-IDJX-nqtQMMI5AQ_v9My9DM6IwYNakyy8DzerWSMrS-Z5Os7VfvOMcvkYO29Uz8YlzVJUIRj0yjjhv5Xgk45LGa8UAHCPdZwwlF6LFqK9zwe14U6okqpB8hPraHlmNM3zOEFJtOUfSxlNF5jvvA0KX5WpIvxV4Bms2JgLFNqFEAvHebVz_RwFhMwNTH0FZU6SYqGVUz_wIK6Gp3To9vKDKbjn4jkrA-CEZNrXwnxUCulAdqnlx3ALcJr095bT9rWJ76RBMK0ve1Dd3fd6Yz0ek0_9K5_NP1U9dWLTz3FOoPnfbyCNzbItm5WLpEonWxvEIxDnXMxpRSyUgt9QhdlN35Sy_sw0f4y3IQ205LzJqCR7l4smDpGHfApXoCbV_Gg0u0c_Ki1lHDCYMqKZTERzhOrHhY728hkDjqhiEd2XmBZu9Jhc43kUsQjD5Zu2gRSykJzDhJst-T5Thodi_ki3lbudriTgNmbMHVu6eDv6vPji48VLKXPLC-U3PvjZ89AGMzReLH3ds09ijpwLk9krYmlsOz7D1o6uQc9e847aSVrS7Q78U2ncldtTcD4Dy6ik25TtpAwEJTv-92uc" charset="UTF-8"></script></head>
+<body>
+
+    <h1>Выберите раздел</h1>
+    <ul style="color: black; font-size: 20px">
+    {% for title, url in pages.items %}
+        <a href="{{ url }}">{{ title }}</a>
+        <br>
+    {% endfor %}
+</body>
+</html>
