@@ -1,4 +1,10 @@
-from django.shortcuts import render
+#from django.conf import setting
+
+from django.shortcuts import render, reverse
+
+from django.http import HttpResponse
+
+
 
 DATA = {
     'omlet': {
@@ -28,3 +34,56 @@ DATA = {
 #     'ингредиент2': количество2,
 #   }
 # }
+def home_view(request):
+    
+    template_name = 'calculator/home.html'
+    pages = {
+        'Cостав для омлета': reverse('omlet'),
+        'Состав для пасты': reverse('pasta'),
+        'Cостав для бутерброда': reverse('buter'),
+    }
+    context = {
+        'pages': pages
+    }
+    return render(request,template_name, context)
+
+def omlet_view(request):
+    context = DATA
+    return render(request, 'calculator/omlet.html', context)
+
+def pasta_view(request):
+    context = DATA
+    return render(request, 'calculator/pasta.html', context)
+
+def buter_view(request):
+    context = DATA
+    return render(request,'calculator/burger.html', context)
+
+def omlet_many_view(request,param1):
+   N=param1
+   DATA1 = DATA
+   for st1 in DATA1:
+        for i in DATA1[st1]:
+            DATA1[st1][i]= DATA1[st1][i]*N
+   context = DATA1
+   return render(request, 'calculator/omlet.html', context)
+
+def pasta_many_view(request,param2):
+   N=param2
+   DATA1 = DATA
+   for st1 in DATA1:
+        for i in DATA1[st1]:
+            DATA1[st1][i]= DATA1[st1][i]*N
+   context = DATA1
+   return render(request, 'calculator/pasta.html', context)
+   
+def buter_many_view(request,param3):
+   N=param3
+   DATA1 = DATA
+   for st1 in DATA1:
+        for i in DATA1[st1]:
+            DATA1[st1][i]= DATA1[st1][i]*N
+   context = DATA1
+   return render(request, 'calculator/burger.html', context)   
+   
+   raise NotImplemented
