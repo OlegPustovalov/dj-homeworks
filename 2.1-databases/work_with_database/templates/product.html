@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ name }}{% endblock %}
+
+{% block content %}
+  <div class="container">
+  <div class="header">
+    <h5>
+      <a href="{% url 'catalog' %}">Вернуться в каталог</a>
+    </h5>
+    <h1>{{ name }}</h1>
+  </div>
+
+  <div class="content">
+    <img src="{{ image }}" alt="{{ name }}"/>
+    <div>Стоимость: {{ price }} ₽</div>
+    <div>Дата выпуска: {{ release_date }}</div>
+    <div>LTE: {{ lte_exists|yesno:'есть,нет' }}</div>
+  </div>
+{% endblock %}
