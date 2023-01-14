@@ -14,7 +14,8 @@ class ProductViewSet(ModelViewSet):
     serializer_class = ProductSerializer
     # при необходимости добавьте параметры фильтрации
     #DEFAULT_FILTER_BACKENDS в setting.py
-    filterset_fields = ['title', 'description']
+    filter_backends = [SearchFilter]
+    search_fields = ['title', 'description']
     
 class StockViewSet(ModelViewSet):
     queryset = Stock.objects.all()
